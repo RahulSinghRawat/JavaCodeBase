@@ -35,7 +35,7 @@ public class CountIncreasingSubArrayOnly
 
 	public static void main(String[] args)
 	{
-		int[] arr = { 1, 2, 4, 4, 5 };
+		int[] arr = { 1, 2, 4, 4, 5,6,6 };
 
 		System.out.print("The number of strictly increasing sub-arrays are "
 								+ getCount(arr));

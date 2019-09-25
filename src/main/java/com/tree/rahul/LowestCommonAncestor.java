@@ -70,11 +70,11 @@ public class LowestCommonAncestor {
 	}
 
 	// Print Lowest Common Ancestor of two nodes in a BST
-	public static void LCA(Node root, int x, int y) {
+	public static int LCA(Node root, int x, int y) {
 		// return if tree is empty or either x or y is not present
 		// in the tree
 		if (root == null || !search(root, x) || !search(root, y)) {
-			return;
+			return -1;
 		}
 
 		// lca stores lowest common ancestor of x and y
@@ -82,9 +82,11 @@ public class LowestCommonAncestor {
 
 		// if lowest common ancestor exists, print it
 		if (lca != null) {
-			System.out.println("LCA is " + lca.data);
+			return lca.data;
+			//System.out.println("LCA is " + lca.data);
 		} else {
-			System.out.println("LCA do not exist");
+			//System.out.println("LCA do not exist");
+			return -1;
 		}
 	}
 
@@ -99,6 +101,6 @@ public class LowestCommonAncestor {
 			root = insert(root, key);
 		}
 
-		LCA(root, 8, 12);
+		System.out.println(LCA(root, 8, 12));
 	}
 }

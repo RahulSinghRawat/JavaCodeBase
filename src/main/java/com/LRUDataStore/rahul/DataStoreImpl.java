@@ -3,7 +3,7 @@ package com.LRUDataStore.rahul;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DefaultDatStore implements DataStore
+public class DataStoreImpl implements DataStore
 {
 	private Map<Object, Object> store = new HashMap<>();
 	

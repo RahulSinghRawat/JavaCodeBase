@@ -8,7 +8,7 @@ import java.lang.*;
 
 public class FindRepeateFirst {
 	public static int findRepeatFirst(String s) {
-		// this is optimized method
+		// this is optimized method with O(n)
 		int p = -1, i, k;
 
 		// initialized counts of occurrences of
@@ -51,4 +51,4 @@ public class FindRepeateFirst {
 	}
 }
 
-// Code Contributed by Mohit Gupta_OMG
+

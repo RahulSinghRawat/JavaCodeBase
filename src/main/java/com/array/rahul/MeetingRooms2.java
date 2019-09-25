@@ -21,19 +21,19 @@ public class MeetingRooms2 {
 	public static int findMinNoOfMeetingRooms(Interval[] intervals) {
 		if (intervals == null || intervals.length == 0)
 			return 0;
-		Arrays.sort(intervals, new Comparator<Interval>() {
+		Arrays.sort(intervals, new Comparator<Interval>() { // sorting the interval array based on start time.
 			public int compare(Interval i1, Interval i2) {
 				return i1.start - i2.start;
 			}
 		});
 		PriorityQueue<Integer> queue = new PriorityQueue<>();
 		int count = 1;
-		queue.offer(intervals[0].end);
+		queue.offer(intervals[0].end);  // Inserts the element
 		for (int i = 1; i < intervals.length; i++) {
 			if (intervals[i].start < queue.peek()) {
 				count++;
 			} else {
-				queue.poll();
+				queue.poll(); // Retrieves and removes the head element
 			}
 			queue.offer(intervals[i].end);
 		}

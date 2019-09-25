@@ -5,15 +5,15 @@ import com.LRUDataStore.rahul.Eviction;
 
 public class FlipCache 
 {
-	private DataStore ds;
+	private DataStore datastore;
 	private Eviction eviction;
 	
-	public DataStore getDs() {
-		return ds;
+	public DataStore getDatastore() {
+		return datastore;
 	}
 
-	private void setDs(DataStore ds) {
-		this.ds = ds;
+	private void setDatastore(DataStore ds) {
+		this.datastore = ds;
 	}	
 
 	private void setEviction(Eviction eviction) {
@@ -22,7 +22,7 @@ public class FlipCache
 	
 	public void configure(DataStore ds, Eviction ev)
 	{
-		setDs(ds);
+		setDatastore(ds);
 		setEviction(ev);
 		ev.setStore(ds);
 	}

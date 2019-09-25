@@ -5,17 +5,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LRU implements Eviction 
+public class EvictionImpl implements Eviction 
 {
-	DataStore sObj;
+	DataStore datastore;
 	private Map<Object, Integer> cache = new LinkedHashMap<>();
 	private List<Object> frames = new ArrayList<>();
 	static int count =0;
 	private final int size = 4;
 	
-	public void setStore(DataStore sObj)
+	public void setStore(DataStore datastore)
 	{
-		this.sObj = sObj;
+		this.datastore = datastore;
 	}
 	
 	public void add(Object key, Object value)
@@ -34,19 +34,22 @@ public class LRU implements Eviction
 			{
 				frames.add(0, key);
 				cache.put(key, 0);
-				sObj.store(key, value);
+				datastore.store(key, value);
 			}
 			count++;
 		}
 		else
 		{
 			Object rKey = frames.get(count-1);
+			// if count is over, then remove from frames and add new frame at 0th index
 			frames.remove(count-1);
 			frames.add(0, key);
+			// if count is over, then remove from cache and put new key with value (0th index)
 			cache.remove(rKey);
 			cache.put(key, 0);
-			sObj.remove(rKey);
-			sObj.store(key, value);
+			// if count is over, then remove from data Store and put new key with value (0th index)
+			datastore.remove(rKey);
+			datastore.store(key, value);
 		}		
 	}
 	
@@ -54,7 +57,7 @@ public class LRU implements Eviction
 	{
 		if(cache.containsKey(key))
 		{
-			Object value = sObj.getValue(key);			
+			Object value = datastore.getValue(key);			
 			add(key, value); //update the data
 			return value;
 		}

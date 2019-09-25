@@ -1,7 +1,7 @@
 package com.LRUCache.rahul;
 
-import com.LRUDataStore.rahul.DefaultDatStore;
-import com.LRUDataStore.rahul.LRU;
+import com.LRUDataStore.rahul.DataStoreImpl;
+import com.LRUDataStore.rahul.EvictionImpl;
 
 public class FlipCacheManager 
 {
@@ -10,7 +10,7 @@ public class FlipCacheManager
 		{
 			FlipCache fc = new FlipCache();
 		
-			fc.configure(new DefaultDatStore(), new LRU()); // Configuring the DataStore and Eviction policy.
+			fc.configure(new DataStoreImpl(), new EvictionImpl()); // Configuring the DataStore and Eviction policy.
 			
 			fc.add("Hello", "greetings");
 			fc.add("Flip", "cache");

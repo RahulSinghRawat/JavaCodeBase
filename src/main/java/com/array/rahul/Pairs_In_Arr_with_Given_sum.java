@@ -22,7 +22,7 @@ public class Pairs_In_Arr_with_Given_sum {
 		
 		while(l<r) {
 			if(arr[l]+arr[r] == sum) {
-				System.out.println("l "+arr[l]+" r "+arr[r]);
+				System.out.println("index "+l+":"+arr[l]+" index "+r+":"+arr[r]);
 				l++;
 				r--;
 			}
