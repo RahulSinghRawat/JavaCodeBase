@@ -101,7 +101,7 @@ class HashMapCustom<K, V> {
 
    /**
     * Method removes key-value pair from HashMapCustom.
-    * @param key
+    * @param data
     */
    public boolean remove(K deleteKey){
       
@@ -137,7 +137,7 @@ class HashMapCustom<K, V> {
     * Method displays all key-value pairs present in HashMapCustom.,
     * insertion order is not guaranteed, for maintaining insertion order
     * refer LinkedHashMapCustom.
-    * @param key
+    * @param data
     */
    public void display(){
       
